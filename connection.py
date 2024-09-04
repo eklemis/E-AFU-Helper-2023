@@ -18,7 +18,7 @@ def setConnection(db_path):
             db_path = new_path
         else:
             print(f"New path is {bcolors.BOLD}NOT EXIST{bcolors.ENDC}, using default path")
-        encrypted_key = getpass.getpass(prompt='Encryption key: ')#'$cU5sP0n@$c1'
+        encrypted_key = getpass.getpass(prompt='Encryption key: ')
         conn = pyodbc.connect(r'Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=' + db_path + f";PWD={encrypted_key}")
         cursor = conn.cursor()
         print(f"Connected to: {bcolors.BOLD}{basename(db_path)}{bcolors.ENDC}")
